@@ -1,0 +1,5 @@
+Comparación ataque-rbac vs podkill (Mann-Whitney U, bilateral)
+  R               U=   0.0  p=0.0079  medianas 0.445 vs 0.868
+  perdida_s       U=  25.0  p=0.0079  medianas 110.500 vs 26.320
+  TTR_usuario_s   U=  25.0  p=0.0112  medianas 111.000 vs 27.000
+  brecha_s        U=  20.0  p=0.1400  medianas 25.900 vs 4.900

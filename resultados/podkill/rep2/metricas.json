@@ -1,0 +1,15 @@
+{
+  "escenario": "podkill",
+  "repeticion": 2,
+  "F0_linea_base": 1.0,
+  "F0_desv": 0.0,
+  "t_impacto_s": 0,
+  "F_min": 0.0,
+  "TTR_usuario_s": 27.0,
+  "TTR_infra_s": 23.1,
+  "brecha_s": 3.9,
+  "perdida_s": 25.5,
+  "R": 0.8719,
+  "solicitudes": 4001,
+  "fallidas": 520
+}

@@ -1,0 +1,15 @@
+{
+  "escenario": "podkill",
+  "repeticion": 5,
+  "parametros": {
+    "linea_base_s": 120,
+    "horizonte_s": 200,
+    "tasa_clientes_s": 5,
+    "retardo_reconciliacion_s": 60,
+    "duracion_carga_s": 340
+  },
+  "t_reconciliacion": null,
+  "t_inicio_carga": 1793655934.2579653,
+  "t_falla": 1793656054.258663,
+  "t_fin": 1793656274.6612537
+}

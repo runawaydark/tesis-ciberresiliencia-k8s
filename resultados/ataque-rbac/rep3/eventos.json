@@ -1,0 +1,15 @@
+{
+  "escenario": "ataque-rbac",
+  "repeticion": 3,
+  "parametros": {
+    "linea_base_s": 120,
+    "horizonte_s": 200,
+    "tasa_clientes_s": 5,
+    "retardo_reconciliacion_s": 60,
+    "duracion_carga_s": 340
+  },
+  "t_reconciliacion": 1793657238.2993503,
+  "t_inicio_carga": 1793657058.1761084,
+  "t_falla": 1793657178.1771502,
+  "t_fin": 1793657398.6429687
+}

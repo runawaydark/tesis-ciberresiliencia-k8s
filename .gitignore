@@ -1,0 +1,26 @@
+# ---------------------------------------------------------------
+# .gitignore - Tesis ciber-resiliencia (CINF200)
+# ---------------------------------------------------------------
+
+# Datos crudos pesados de k6 (~6 MB por repeticion).
+# No se suben al repositorio: se publican comprimidos en un Release
+# de GitHub por cada campana experimental.
+resultados/**/k6.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Archivos temporales de Office (aparecen mientras un Word esta abierto)
+~$*
+*.tmp
+
+# Archivos del sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Copias que genera analizar.py si un grafico estaba abierto
+*_nuevo.png

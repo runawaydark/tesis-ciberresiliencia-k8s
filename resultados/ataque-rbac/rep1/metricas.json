@@ -1,0 +1,16 @@
+{
+  "escenario": "ataque-rbac",
+  "repeticion": 1,
+  "F0_linea_base": 0.994,
+  "F0_desv": 0.06,
+  "t_impacto_s": 0,
+  "F_min": 0.0,
+  "TTR_usuario_s": 88.0,
+  "TTR_infra_s": 85.1,
+  "brecha_s": 2.9,
+  "perdida_s": 87.5,
+  "R": 0.5603,
+  "solicitudes": 4000,
+  "fallidas": 1744,
+  "t_reconciliacion_s": 60.1
+}
