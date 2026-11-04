@@ -2,10 +2,6 @@
 # .gitignore - Tesis ciber-resiliencia (CINF200)
 # ---------------------------------------------------------------
 
-# Datos crudos pesados de k6 (~6 MB por repeticion).
-# No se suben al repositorio: se publican comprimidos en un Release
-# de GitHub por cada campana experimental.
-resultados/**/k6.csv
 
 # Python
 __pycache__/
