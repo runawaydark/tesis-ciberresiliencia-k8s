@@ -1,8 +1,10 @@
 # =====================================================================
-# 00_instalar.ps1  -  Instala las herramientas del laboratorio (Windows 11)
-# Ejecutar en PowerShell COMO ADMINISTRADOR, desde la carpeta kit-mvp.
+# instalacion/00_instalar.ps1  -  Instala las herramientas del laboratorio
+# Windows 11. Ejecutar en PowerShell COMO ADMINISTRADOR:
+#     .\instalacion\00_instalar.ps1
 # =====================================================================
 $ErrorActionPreference = "Stop"
+Set-Location (Split-Path -Parent $PSScriptRoot)   # raiz del repositorio
 
 Write-Host "`n[1/3] WSL2 (necesario para Docker Desktop)" -ForegroundColor Cyan
 wsl --status 2>$null
@@ -18,8 +20,9 @@ $paquetes = @(
     "Kubernetes.minikube",    # cluster Kubernetes local
     "Kubernetes.kubectl",     # cliente de Kubernetes
     "Helm.Helm",              # gestor de paquetes (Grafana/Prometheus, opcional)
-    "k6",                     # generador de carga
-    "Python.Python.3.12"      # analisis de datos
+    "GrafanaLabs.k6",         # generador de carga
+    "Python.Python.3.12",     # analisis de datos
+    "Git.Git"                 # control de versiones
 )
 foreach ($p in $paquetes) {
     Write-Host "  -> $p"
@@ -31,8 +34,8 @@ Write-Host @"
 Pasos manuales:
   1. Abre Docker Desktop una vez y espera a que diga 'Engine running'.
   2. CIERRA esta ventana y abre una PowerShell nueva (normal, no admin)
-     para que se carguen las rutas nuevas.
-  3. En la carpeta kit-mvp ejecuta:
+     en la carpeta del repositorio, para que se carguen las rutas nuevas.
+  3. Ejecuta:
         python -m pip install -r requirements.txt
-  4. Sigue con: .\01_laboratorio.ps1
+  4. Sigue con: .\instalacion\01_laboratorio.ps1
 "@

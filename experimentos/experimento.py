@@ -17,8 +17,8 @@ Escenarios:
                Con --retardo -1 no hay reconciliacion durante la medicion.
 
 Uso:
-  python experimento.py --escenario podkill --reps 5
-  python experimento.py --escenario ataque-rbac --reps 5 --retardo 60
+  python experimentos/experimento.py --escenario podkill --reps 5
+  python experimentos/experimento.py --escenario ataque-rbac --reps 5 --retardo 60
 """
 import argparse
 import csv
@@ -30,7 +30,10 @@ import time
 import urllib.request
 from pathlib import Path
 
-BASE = Path(__file__).parent
+RAIZ = Path(__file__).resolve().parent.parent          # carpeta raiz del repositorio
+MANIFIESTO = RAIZ / "laboratorio" / "manifiestos" / "estado-deseado.yaml"
+CARGA = RAIZ / "carga" / "carga.js"
+RESULTADOS = RAIZ / "resultados"
 NS = "default"
 OBJETIVO = "cartservice"
 SA = f"system:serviceaccount:{NS}:sa-comprometida"
@@ -102,11 +105,11 @@ def inyectar(escenario):
 
 def reconciliar():
     """Reaplica el estado deseado (lo que haria un controlador GitOps)."""
-    kubectl("apply", "-f", str(BASE / "manifiestos" / "estado-deseado.yaml"))
+    kubectl("apply", "-f", str(MANIFIESTO))
 
 
 def una_repeticion(a, rep):
-    carpeta = BASE / "resultados" / a.escenario / f"rep{rep}"
+    carpeta = RESULTADOS / a.escenario / f"rep{rep}"
     carpeta.mkdir(parents=True, exist_ok=True)
     print(f"\n=== {a.escenario}  repeticion {rep} (ultima: {a.desde + a.reps - 1})  ->  {carpeta}")
 
@@ -128,7 +131,7 @@ def una_repeticion(a, rep):
         k6 = subprocess.Popen(
             ["k6", "run", "--out", f"csv={carpeta / 'k6.csv'}",
              "-e", "BASE_URL=http://localhost:8080", "-e", f"TASA={a.tasa}",
-             "-e", f"DURACION={duracion}s", str(BASE / "carga" / "carga.js")],
+             "-e", f"DURACION={duracion}s", str(CARGA)],
             stdout=salida, stderr=subprocess.STDOUT)
         ev["t_inicio_carga"] = time.time()
 
@@ -176,7 +179,7 @@ def main():
         sys.exit("--retardo debe ser menor que --horizonte")
     for rep in range(a.desde, a.desde + a.reps):
         una_repeticion(a, rep)
-    print("\nListo. Ahora: python analizar.py")
+    print("\nListo. Ahora: python analisis/analizar.py")
 
 
 if __name__ == "__main__":

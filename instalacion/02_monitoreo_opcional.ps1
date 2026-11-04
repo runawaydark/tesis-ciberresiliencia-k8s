@@ -1,6 +1,6 @@
 # =====================================================================
-# 02_monitoreo_opcional.ps1  -  Prometheus + Grafana (OPCIONAL)
-# No es necesario para medir: experimento.py ya registra los datos.
+# instalacion/02_monitoreo_opcional.ps1  -  Prometheus + Grafana (OPCIONAL)
+# No es necesario para medir: experimentos/experimento.py ya registra los datos.
 # Sirve para capturas de pantalla de dashboards para el informe.
 # =====================================================================
 $ErrorActionPreference = "Stop"

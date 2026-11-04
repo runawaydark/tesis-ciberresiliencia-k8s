@@ -28,7 +28,7 @@ Salidas:
   resultados/curvas_<esc>.png (todas las repeticiones superpuestas)
   resultados/comparacion.txt (prueba de Mann-Whitney si hay 2 escenarios)
 
-Uso:  python analizar.py  [--slo 1000] [--umbral 0.95] [--ventana 10]
+Uso:  python analisis/analizar.py  [--slo 1000] [--umbral 0.95] [--ventana 10]
 """
 import argparse
 import json
@@ -42,7 +42,7 @@ import pandas as pd
 
 _trap = getattr(np, "trapezoid", None) or np.trapz
 
-BASE = Path(__file__).parent / "resultados"
+BASE = Path(__file__).resolve().parent.parent / "resultados"
 CALENTAMIENTO = 20  # s iniciales de k6 que no cuentan para la linea base
 
 
@@ -248,7 +248,7 @@ def main():
         print(f"{carpeta.parent.name}/{carpeta.name}: R={m['R']}  TTR_usuario={m['TTR_usuario_s']}  "
               f"TTR_infra={m['TTR_infra_s']}  brecha={m['brecha_s']}")
     if not metricas:
-        print("No hay resultados. Ejecuta primero experimento.py")
+        print("No hay resultados. Ejecuta primero experimentos/experimento.py")
         return
     resumen(metricas, curvas, a)
     print(f"\nGráficos y tablas en: {BASE}")

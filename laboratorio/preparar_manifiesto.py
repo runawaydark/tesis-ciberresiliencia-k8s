@@ -1,4 +1,4 @@
-"""Genera manifiestos/estado-deseado.yaml a partir del manifiesto oficial.
+"""Genera laboratorio/manifiestos/estado-deseado.yaml a partir del manifiesto oficial.
 
 Quita el generador de carga interno de Online Boutique (loadgenerator), porque
 la carga del experimento la controla k6. El archivo resultante es el
