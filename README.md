@@ -1,8 +1,10 @@
-# Ciber-resiliencia de microservicios en Kubernetes
+# Medición cuantitativa de ciberresiliencia en infraestructuras basadas en contenedores y Kubernetes
+
+*Análisis de métricas para degradación, continuidad y recuperación de microservicios*
 
 Tesis de pregrado · Ingeniería Civil Informática · Universidad Andrés Bello · Curso CINF200
 
-**Pregunta de investigación:** ¿en qué medida las métricas de recuperación que reporta Kubernetes representan la resiliencia del servicio percibida por el usuario, frente a fallas accidentales y frente a ataques que abusan de permisos?
+**Pregunta de investigación:** ¿En qué medida las métricas cuantitativas actuales representan adecuadamente la ciberresiliencia operacional de aplicaciones de microservicios desplegadas en Kubernetes frente a eventos de degradación y recuperación?
 
 Este repositorio contiene un laboratorio reproducible que despliega **Online Boutique** (11 microservicios) en **Minikube**, genera carga de usuarios con **k6**, inyecta fallas y ataques, y mide en paralelo la recuperación desde dos perspectivas: la del **usuario** (curva de funcionalidad F(t)) y la de **Kubernetes** (réplicas disponibles).
 
