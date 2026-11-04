@@ -105,7 +105,7 @@ Cada repetición dura unos 7 minutos. Durante la campaña no debe haber otra ven
 
 ## Datos crudos
 
-Los registros de cada solicitud (`k6.csv`, ~6 MB por repetición) no se versionan en el repositorio. Se publican comprimidos en la sección **Releases**, uno por campaña experimental.
+Los registros de cada solicitud están en el archivo k6.csv de cada repetición (resultados/<escenario>/repN/k6.csv, ~6 MB cada uno). Junto a ellos están infra.csv (réplicas disponibles según Kubernetes, cada 1 s) y eventos.json (instantes del protocolo y parámetros), de modo que cualquier persona puede recalcular todas las métricas desde cero con python analisis\analizar.py.
 
 ## Versiones
 
